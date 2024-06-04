@@ -4,7 +4,29 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <AssemblyName>$(MSBuildProjectName)</AssemblyName>
+    <PackageId>BeratAK.NTierArchCorePackage</PackageId>
+    <Title>Base Result and Repository Types</Title>
+    <Authors>Berat AK</Authors>
+    <Company>Berat AK</Company>
+    <Product>Base Result Types and Repositories</Product>
+    <Description>Core Packages For N Tier Applications Which Includes Entity Framework Repository and Result Types for Response </Description>
+    <Copyright>Copyright 2024</Copyright>
+    <PackageProjectUrl>https://beratak.com/mypackages/nlayercorepackage</PackageProjectUrl>
+    <PackageIcon>iconstructure.png</PackageIcon>
+    <RepositoryUrl>https://github.com/BeratAK61/NLayerArchitectureCorePackages</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>result repository</PackageTags>
+    <PackageReleaseNotes>First Release</PackageReleaseNotes>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\Users\Berat AK\Downloads\iconstructure.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.6" />
