@@ -19,10 +19,15 @@
     <PackageTags>result repository</PackageTags>
     <PackageReleaseNotes>First Release</PackageReleaseNotes>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
     <None Include="..\..\..\Users\Berat AK\Downloads\iconstructure.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\..\..\Users\Berat AK\Downloads\README.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
