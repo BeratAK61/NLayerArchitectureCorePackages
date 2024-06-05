@@ -5,7 +5,7 @@ using NLayerCore.Repositories;
 using System.Linq.Expressions;
 
 
-namespace MyCorePackages.Repositories;
+namespace NLayerCore.Repositories;
 
 public interface IRepository<TEntity, TEntityId> : IQuery<TEntity>
     where TEntity : Entity<TEntityId>

@@ -1,4 +1,4 @@
-﻿namespace MyCorePackages.Results.Concrete;
+﻿namespace NLayerCore.Results.Concrete;
 
 public class ErrorResult : Result
 {

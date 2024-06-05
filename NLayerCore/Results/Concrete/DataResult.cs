@@ -1,6 +1,6 @@
-﻿using MyCorePackages.Results.Abstract;
+﻿using NLayerCore.Results.Abstract;
 
-namespace MyCorePackages.Results.Concrete;
+namespace NLayerCore.Results.Concrete;
 
 public class DataResult<T> : Result, IDataResult<T>
 {

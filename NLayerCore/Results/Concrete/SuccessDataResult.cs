@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MyCorePackages.Results.Concrete;
+namespace NLayerCore.Results.Concrete;
 
 public class SuccessDataResult<T> : DataResult<T>
 {

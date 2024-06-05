@@ -1,4 +1,4 @@
-﻿namespace MyCorePackages.Results.Abstract;
+﻿namespace NLayerCore.Results.Abstract;
 
 public interface IDataResult<out T> : IResult
 {
