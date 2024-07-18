@@ -12,17 +12,19 @@ public class TokenService : ITokenService
     
     public TokenDto CreateJwt(CreateTokenDto createTokenDto)
     {
-        JsonWebTokenOptions tokenOptions = createTokenDto.TokenOptions;
+        //JsonWebTokenOptions tokenOptions = createTokenDto.TokenOptions;
 
-        var accessTokenExpiration = DateTime.Now.AddMinutes(tokenOptions.AccessTokenExpiration);
-        var refreshTokenExpiration = DateTime.Now.AddMinutes(tokenOptions.RefreshTokenExpiration);
+        var jwtSettings = ConfigurationReader.GetJwtSettings();
 
-        SecurityKey securityKey = SignService.GetSymetricSecurityKey(tokenOptions.SecurityKey);
+        var accessTokenExpiration = DateTime.Now.AddMinutes(jwtSettings.AccessTokenExpiration);
+        var refreshTokenExpiration = DateTime.Now.AddMinutes(jwtSettings.RefreshTokenExpiration);
 
-        SigningCredentials signingCredentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256Signature);
+        SecurityKey securityKey = SignService.GetSymetricSecurityKey(jwtSettings.SecurityKey);
+
+        SigningCredentials signingCredentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha512);
 
         JwtSecurityToken jwtSecurityToken = new JwtSecurityToken(
-            issuer: tokenOptions.Issuer,
+            issuer: jwtSettings.Issuer,
             expires: accessTokenExpiration,
             notBefore: DateTime.Now,
             claims: GetClaims(createTokenDto),

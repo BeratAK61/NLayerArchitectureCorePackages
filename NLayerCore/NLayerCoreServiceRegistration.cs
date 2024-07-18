@@ -7,18 +7,22 @@ namespace NLayerCore;
 
 public static class NLayerCoreServiceRegistration
 {
-    public static IServiceCollection AddJsonWebTokenAuthentication(this IServiceCollection services, IConfiguration configuration)
+    public static IServiceCollection AddJsonWebTokenAuthentication(this IServiceCollection services)
     {
         services.AddScoped<ITokenService, TokenService>();
 
-        services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+        services.AddAuthentication(options =>
+        {
+            options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+        })
+        .AddJwtBearer(options =>
         {
             var jwtSettings = ConfigurationReader.GetJwtSettings();
 
-
             options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
             {
-                ValidateAudience = true,
+                //ValidateAudience = true,
+                ValidateAudience = false,
                 ValidateIssuer = true,
                 ValidateLifetime = true,
                 ValidateIssuerSigningKey = true,
@@ -28,6 +32,8 @@ public static class NLayerCoreServiceRegistration
                 ClockSkew = TimeSpan.Zero
             };
         });
+
+        //services.AddAuthorization();
 
         return services;
     }

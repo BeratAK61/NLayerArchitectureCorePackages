@@ -2,8 +2,6 @@
 
 public class CreateTokenDto
 {
-    public JsonWebTokenOptions TokenOptions { get; set; }
-
     public string UserId { get; set; }
 
     public string UserEmail { get; set; }
@@ -15,7 +13,6 @@ public class CreateTokenDto
 
     public CreateTokenDto()
     {
-        TokenOptions = new JsonWebTokenOptions();
         UserRoles = new List<string>();
     }
 }
