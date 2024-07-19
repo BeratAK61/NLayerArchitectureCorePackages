@@ -28,16 +28,15 @@ where TContext : DbContext
     {
         entity.CreatedDate = DateTime.UtcNow;
         await Context.AddAsync(entity);
-        await Context.SaveChangesAsync();
         return entity;
     }
 
     public async Task<ICollection<TEntity>> AddRangeAsync(ICollection<TEntity> entities)
     {
         foreach (TEntity entity in entities)
-            entity.CreatedDate = DateTime.UtcNow;
+        entity.CreatedDate = DateTime.UtcNow;
         await Context.AddRangeAsync(entities);
-        await Context.SaveChangesAsync();
+
         return entities;
     }
 
@@ -45,7 +44,7 @@ where TContext : DbContext
     {
         entity.UpdatedDate = DateTime.UtcNow;
         Context.Update(entity);
-        await Context.SaveChangesAsync();
+
         return entity;
     }
 
@@ -54,21 +53,21 @@ where TContext : DbContext
         foreach (TEntity entity in entities)
             entity.UpdatedDate = DateTime.UtcNow;
         Context.UpdateRange(entities);
-        await Context.SaveChangesAsync();
+
         return entities;
     }
 
     public async Task<TEntity> DeleteAsync(TEntity entity, bool permanent = false)
     {
         await SetEntityAsDeletedAsync(entity, permanent);
-        await Context.SaveChangesAsync();
+
         return entity;
     }
 
     public async Task<ICollection<TEntity>> DeleteRangeAsync(ICollection<TEntity> entities, bool permanent = false)
     {
         await SetEntityAsDeletedAsync(entities, permanent);
-        await Context.SaveChangesAsync();
+
         return entities;
     }
 
@@ -159,7 +158,7 @@ where TContext : DbContext
     {
         entity.CreatedDate = DateTime.UtcNow;
         Context.Add(entity);
-        Context.SaveChanges();
+
         return entity;
     }
 
@@ -168,7 +167,7 @@ where TContext : DbContext
         foreach (TEntity entity in entities)
             entity.CreatedDate = DateTime.UtcNow;
         Context.AddRange(entities);
-        Context.SaveChanges();
+
         return entities;
     }
 
@@ -176,7 +175,7 @@ where TContext : DbContext
     {
         entity.UpdatedDate = DateTime.UtcNow;
         Context.Update(entity);
-        Context.SaveChanges();
+
         return entity;
     }
 
@@ -185,21 +184,21 @@ where TContext : DbContext
         foreach (TEntity entity in entities)
             entity.UpdatedDate = DateTime.UtcNow;
         Context.UpdateRange(entities);
-        Context.SaveChanges();
+
         return entities;
     }
 
     public TEntity Delete(TEntity entity, bool permanent = false)
     {
         SetEntityAsDeleted(entity, permanent);
-        Context.SaveChanges();
+
         return entity;
     }
 
     public ICollection<TEntity> DeleteRange(ICollection<TEntity> entities, bool permanent = false)
     {
         SetEntityAsDeleted(entities, permanent);
-        Context.SaveChanges();
+
         return entities;
     }
 
@@ -445,5 +444,17 @@ where TContext : DbContext
         }
 
         Context.Update(entity);
+    }
+
+    public async Task<int> SaveChangesAsync()
+    {
+        int result = await  Context.SaveChangesAsync();
+
+        return result;
+    }
+
+    public int Save()
+    {
+        return Context.SaveChanges();
     }
 }

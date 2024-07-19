@@ -56,4 +56,7 @@ where TEntity : Entity<TEntityId>
     Task<TEntity> DeleteAsync(TEntity entity, bool permanent = false);
 
     Task<ICollection<TEntity>> DeleteRangeAsync(ICollection<TEntity> entity, bool permanent = false);
+
+
+    Task<int> SaveChangesAsync();
 }

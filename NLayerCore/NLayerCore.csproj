@@ -18,8 +18,8 @@
     <RepositoryUrl>https://github.com/BeratAK61/NLayerArchitectureCorePackages</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>Result Types Repository</PackageTags>
-    <Version>1.0.19</Version>
-    <PackageReleaseNotes>Changes Hash Algorithm as Hmac512</PackageReleaseNotes>
+    <Version>1.0.20</Version>
+    <PackageReleaseNotes>Added Unit Of Work Design Pattern</PackageReleaseNotes>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
 	<DebugSymbols>false</DebugSymbols>
   </PropertyGroup>
