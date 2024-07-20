@@ -45,5 +45,5 @@ public interface IRepository<TEntity, TEntityId> : IQuery<TEntity>
     TEntity Delete(TEntity entity, bool permanent = false);
     ICollection<TEntity> DeleteRange(ICollection<TEntity> entity, bool permanent = false);
 
-    int Save();
+    int SaveChanges();
 }

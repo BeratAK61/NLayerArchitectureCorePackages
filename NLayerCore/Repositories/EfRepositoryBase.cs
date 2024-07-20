@@ -453,7 +453,7 @@ where TContext : DbContext
         return result;
     }
 
-    public int Save()
+    public int SaveChanges()
     {
         return Context.SaveChanges();
     }
