@@ -18,8 +18,8 @@
     <RepositoryUrl>https://github.com/BeratAK61/NLayerArchitectureCorePackages</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>Result Types Repository</PackageTags>
-    <Version>1.0.21</Version>
-    <PackageReleaseNotes>Changed Save Function as SaveChanges</PackageReleaseNotes>
+    <Version>1.0.22</Version>
+    <PackageReleaseNotes>Added Constructor Support For CreateTokenDto</PackageReleaseNotes>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
 	<DebugSymbols>false</DebugSymbols>
   </PropertyGroup>

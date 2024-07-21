@@ -15,4 +15,12 @@ public class CreateTokenDto
     {
         UserRoles = new List<string>();
     }
+
+    public CreateTokenDto(string userId, string userEmail, string userName, List<string> userRoles)
+    {
+        UserId = userId;
+        UserEmail = userEmail;
+        UserName = userName;
+        UserRoles = userRoles;
+    }
 }
