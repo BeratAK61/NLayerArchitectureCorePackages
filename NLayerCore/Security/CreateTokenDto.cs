@@ -4,9 +4,9 @@ public class CreateTokenDto
 {
     public string UserId { get; set; }
 
-    public string UserEmail { get; set; }
+    public string Name { get; set; }
 
-    public string UserName { get; set; }
+    public string UserEmail { get; set; }
 
     public List<string> UserRoles { get; set; }
 
@@ -16,11 +16,11 @@ public class CreateTokenDto
         UserRoles = new List<string>();
     }
 
-    public CreateTokenDto(string userId, string userEmail, string userName, List<string> userRoles)
+    public CreateTokenDto(string userId, string name, string userEmail, List<string> userRoles)
     {
         UserId = userId;
+        Name = name;
         UserEmail = userEmail;
-        UserName = userName;
         UserRoles = userRoles;
     }
 }

@@ -48,7 +48,7 @@ public class TokenService : ITokenService
         {
             new Claim(ClaimTypes.NameIdentifier, createTokenDto.UserId),
             new Claim(JwtRegisteredClaimNames.Email, createTokenDto.UserEmail),
-            new Claim(ClaimTypes.Name, createTokenDto.UserName),
+            new Claim(ClaimTypes.Name, createTokenDto.Name),
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
         };
 
