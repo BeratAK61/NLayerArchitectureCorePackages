@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using NLayerCore.Caching;
 using NLayerCore.Security;
 
 namespace NLayerCore;
@@ -36,5 +37,22 @@ public static class NLayerCoreServiceRegistration
         //services.AddAuthorization();
 
         return services;
+    }
+
+    public static IServiceCollection AddRedisCache(this IServiceCollection services)
+    {
+        services.AddScoped<IRedisCacheService, RedisCacheService>();
+
+        var redisSettings = ConfigurationReader.GetRedisSettings();
+
+        services.AddStackExchangeRedisCache(options => {
+
+            options.Configuration = redisSettings.ConnectionString;
+        });
+
+        return services;
+
+
+
     }
 }

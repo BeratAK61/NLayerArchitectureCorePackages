@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Configuration;
+using NLayerCore.Caching;
 using NLayerCore.Security;
 
 namespace NLayerCore;
@@ -20,5 +21,13 @@ public class ConfigurationReader
         var jwtSettings = new JsonWebTokenOptions();
         config.Bind("JsonWebTokenOptions", jwtSettings);
         return jwtSettings;
+    }
+
+    public static RedisOptions GetRedisSettings()
+    {
+        var config = GetAppSettings();
+        var redisSettings = new RedisOptions();
+        config.Bind("RedisOptions", redisSettings);
+        return redisSettings;
     }
 }
