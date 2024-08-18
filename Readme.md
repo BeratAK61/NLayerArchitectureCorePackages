@@ -19,3 +19,16 @@ To install the N Layer Core package, run the following command in your NuGet Pac
 
 ```shell
 Install-Package NLayerCore
+```
+
+# Defining Entity
+```
+using NLayerCore.Repositories;
+
+namespace InvoiceCustomer.Entities.Concrete;
+
+public class Customer : Entity<int>
+{
+    public string Name { get; set; }
+}
+```
