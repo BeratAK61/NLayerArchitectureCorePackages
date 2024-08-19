@@ -22,13 +22,46 @@ Install-Package NLayerCore
 ```
 
 # Defining Entity
-```
+```csharp
 using NLayerCore.Repositories;
 
-namespace InvoiceCustomer.Entities.Concrete;
+namespace Project.Entities.Concrete;
 
 public class Customer : Entity<int>
 {
     public string Name { get; set; }
+}
+```
+
+# Defining Repositories
+## Defining Interface
+```csharp
+using Project.Entities.Concrete;
+using NLayerCore.Repositories;
+
+namespace InvoiceCustomer.DataAccess.Abstract;
+
+public interface ICustomerRepository : IAsyncRepository<Customer,int>, IRepository<Customer,int>
+{
+
+}
+
+```
+
+## Defining Class
+```csharp
+using Project.DataAccess.Abstract;
+using Project.DataAccess.Contexts;
+using Project.Entities.Concrete;
+using NLayerCore.Repositories;
+
+namespace Project.DataAccess.Concrete;
+
+public class CustomerRepository : EfRepositoryBase<Customer, int, BaseContext>, ICustomerRepository
+{
+    public CustomerRepository(BaseContext context) : base(context)
+    {
+
+    }
 }
 ```
