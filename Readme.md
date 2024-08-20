@@ -55,6 +55,7 @@ using Project.DataAccess.Contexts;
 using Project.Entities.Concrete;
 using NLayerCore.Repositories;
 
+
 namespace Project.DataAccess.Concrete;
 
 public class CustomerRepository : EfRepositoryBase<Customer, int, BaseContext>, ICustomerRepository
