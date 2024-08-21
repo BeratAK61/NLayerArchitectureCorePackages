@@ -55,7 +55,6 @@ using Project.DataAccess.Contexts;
 using Project.Entities.Concrete;
 using NLayerCore.Repositories;
 
-
 namespace Project.DataAccess.Concrete;
 
 public class CustomerRepository : EfRepositoryBase<Customer, int, BaseContext>, ICustomerRepository
@@ -65,4 +64,13 @@ public class CustomerRepository : EfRepositoryBase<Customer, int, BaseContext>, 
 
     }
 }
+```
+
+## Registering Repository on Program.cs
+```csharp
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
+
+builder.Services.AddControllers();
 ```
